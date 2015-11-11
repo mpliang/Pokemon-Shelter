@@ -1,0 +1,117 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html ng-app="animalApp">
+  <head>
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet">
+
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/src/index.js"></script>
+  </head>
+
+  <body ng-controller="mainController">
+    <header>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" ui-sref="home">Pokemon Shelter</a>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a ui-sref="home">
+                <i class="fa fa-hospital-o"></i>
+                Home</a>
+            </li>
+            <li class="dropdown">
+              <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">Pokemon
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a ui-sref="add">
+                    <i class="fa fa-plus-circle"></i>
+                    Add a Pokemon</a>
+                </li>
+                <li class="divider" role="separator"></li>
+                <li>
+                  <a ui-sref="animals">
+                    <i class="fa fa-ambulance"></i>
+                    Pokemon</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">Trainers
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a ui-sref="addTrainers">
+                    <i class="fa fa-plus-circle"></i>
+                    Add a Trainer</a>
+                </li>
+                <li class="divider" role="separator"></li>
+                <li>
+                  <a ui-sref="trainers">
+                    <i class="fa fa-ambulance"></i>
+                    Trainers</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+<!-- <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a ui-sref="home">
+                <i class="fa fa-hospital-o"></i>
+                Home</a>
+            </li>
+            <li>
+              <a ui-sref="add">
+                <i class="fa fa-plus-circle"></i>
+                Add a Pokemon</a>
+            </li>
+            <li>
+              <a ui-sref="addTrainers">
+                <i class="fa fa-plus-circle"></i>
+                Add a Trainer</a>
+            </li>
+            <li>
+              <a ui-sref="animals">
+                <i class="fa fa-ambulance"></i>
+                Pokemon</a>
+            </li>
+            <li>
+              <a ui-sref="trainers">
+                <i class="fa fa-ambulance"></i>
+                Trainers</a>
+            </li> -->
+        </div>
+      </nav>
+    </header>
+
+    <div id="main">
+      <div ui-view></div>
+    </div>
+
+    <footer class="info">
+      <p>Created by Michael Liang</p>
+      <p>View Source Code on
+        <a href="https://github.com/mpliang/angularToDo">GitHub</a>
+      </p>
+    </footer>
+
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/src/module.js"></script>
+    <script src="/src/controllers/home.js"></script>
+    <script src="/src/controllers/add.js"></script>
+    <script src="/src/controllers/trainers.js"></script>
+    <script src="/src/controllers/addTrainer.js"></script>
+    <script src="/src/controllers/animals.js"></script>
+    <script src="/src/controllers/show.js"></script>
+    <script src="/src/config.js"></script>
+  </body>
+
+</html>
