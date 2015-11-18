@@ -1,11 +1,11 @@
-<div class="jumbotron text-center">
+<div class="container">
   <h1>Pokemon Trainers</h1>
   <a ui-sref="addTrainers" class="btn btn-success">Add a trainer</a>
   <hr>
   <!-- <p>{{ message }}</p> -->
 
   <div class="row">
-    <div class="col-sm-6 col-md-4" ng-repeat="n in trainerList track by $index">
+    <div class="col-sm-12 col-md-4" ng-repeat="n in trainerList track by $index">
       <div class="thumbnail">
         <a ui-sref="trainerShow({trainerId: n._id})">
         <img ng-src="{{n.url}}" id="thumbnail">

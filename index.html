@@ -66,7 +66,7 @@
 
   <body ng-controller="mainController">
     <header>
-      <nav class="navbar navbar-default">
+      <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
             <a class="navbar-brand" ui-sref="home">Pokemon Shelter</a>
@@ -74,20 +74,20 @@
           <ul class="nav navbar-nav navbar-right">
             <li>
               <a ui-sref="animals">
-                <i class="fa fa-hospital-o"></i>
+                <i class="fa fa-home"></i>
                 Home</a>
             </li>
             <li class="divider" role="separator"></li>
             <li>
               <a ui-sref="animals">
-                <i class="fa fa-ambulance"></i>
+                <i class="fa fa-paw"></i>
                 Pokemon</a>
             </li>
 
             <li class="divider" role="separator"></li>
             <li>
               <a ui-sref="trainers">
-                <i class="fa fa-ambulance"></i>
+                <i class="fa fa-group"></i>
                 Trainers</a>
             </li>
           </ul>
@@ -100,7 +100,7 @@
       <div ui-view></div>
     </div>
 
-    <footer class="info">
+    <footer>
       <p>Created by Michael Liang</p>
       <p>View Source Code on
         <a href="https://github.com/mpliang/Pokemon-Shelter">GitHub</a>

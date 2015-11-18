@@ -14,7 +14,8 @@ app.controller('showController', function ($scope, $http, $stateParams) {
 
     $http.get(url+ 'animals/')
       .then(function(data){
-        mixpanel.track("Animal list on single trainer page viewed");
+        console.log(data);
+        mixpanel.track("Available animals list on single trainer page viewed");
         $scope.pokemonlist = data.data;
       })
       .catch(function(error){
