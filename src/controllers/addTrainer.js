@@ -3,7 +3,7 @@ app.controller('addTrainerController', function ($scope, $http, $state) {
 
   $scope.add = function(trainer) {
     console.log(trainer);
-    $http.post('https://pokemon-shelter.herokuapp.com/trainers', trainer);
+    $http.post(url + 'trainers', trainer);
     $state.go($state.current, {}, {reload: true});
   };
 });

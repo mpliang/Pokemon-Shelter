@@ -2,8 +2,9 @@ app.controller('trainerController', function ($scope, $http, $state) {
   $scope.message = 'Trainer List';
 
   $scope.delete = function(id) {
-    $http.delete('https://pokemon-shelter.herokuapp.com/trainers/' + id)
+    $http.delete(url + 'trainers/' + id)
       .then(function(data){
+        mixpanel.track("trainer deleted");
         $state.go($state.current, {}, {reload: true});
       })
       .catch(function(error){
@@ -11,9 +12,10 @@ app.controller('trainerController', function ($scope, $http, $state) {
       })
   }
 
-  $http.get('https://pokemon-shelter.herokuapp.com/trainers/')
+  $http.get(url + 'trainers/')
     .then(function(data){
       console.log(data);
+      mixpanel.track("trainer list fetched");
       $scope.trainerList = data.data;
     })
     .catch(function(error){

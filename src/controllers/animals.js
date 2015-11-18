@@ -4,7 +4,7 @@ app.controller('animalController', function ($scope, $http, $state) {
   $scope.adopt = function(id) {
     console.log('adopted');
     console.log(id);
-    $http.put('https://pokemon-shelter.herokuapp.com/animals/' + id + '/toggle')
+    $http.put(url + 'animals/' + id + '/toggle')
       .then(function(data){
         console.log(data);
         $state.go($state.current, {}, {reload: true});
@@ -14,10 +14,11 @@ app.controller('animalController', function ($scope, $http, $state) {
       });
   }
 
-  $http.get('https://pokemon-shelter.herokuapp.com/animals/')
+  $http.get(url + 'animals/')
     .then(function(data){
       console.log(data);
       console.log(data.data);
+      mixpanel.track("Pokemon list retrieved");
       $scope.pokemonlist = data.data;
     })
     .catch(function(error){

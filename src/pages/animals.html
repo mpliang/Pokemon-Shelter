@@ -1,6 +1,9 @@
 <div class="jumbotron text-center">
   <h1>Adopt a Pokemon Today!</h1>
-  <p>{{ message }}</p>
+  <a ui-sref="add" class="btn btn-success">Put a Pokemon up for adoption!</a>
+  <hr>
+
+  <!-- <p>{{ message }}</p> -->
 
   <div class="row">
     <div class="col-sm-6 col-md-4" ng-repeat="n in pokemonlist track by $index">
@@ -17,7 +20,7 @@
           <p><strong>Description:</strong>
             {{n.description}}</p>
           <button class="btn btn-primary" ng-click="adopt(n._id)" ng-if="n.isAvailable">Adopt</button>
-          <button class="btn btn-primary disabled" ng-if="!n.isAvailable">Adopt</button>
+          <button class="btn btn-danger disabled" ng-if="!n.isAvailable">Adopted!</button>
         </div>
       </div>
     </div>

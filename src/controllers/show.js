@@ -2,19 +2,19 @@ app.controller('showController', function ($scope, $http, $stateParams) {
   $scope.message = 'Trainer';
   console.log($stateParams);
 
-  $http.get('https://pokemon-shelter.herokuapp.com/trainers/' + $stateParams.trainerId)
+  $http.get(url + 'trainers/' + $stateParams.trainerId)
     .then(function(data){
       console.log(data);
+      mixpanel.track("Single trainer viewed");
       $scope.trainer = data.data;
     })
     .catch(function(error){
       console.log(error);
     });
 
-    $http.get('https://pokemon-shelter.herokuapp.com/animals/')
+    $http.get(url+ 'animals/')
       .then(function(data){
-        console.log(data);
-        console.log(data.data);
+        mixpanel.track("Animal list on single trainer page viewed");
         $scope.pokemonlist = data.data;
       })
       .catch(function(error){
@@ -22,11 +22,10 @@ app.controller('showController', function ($scope, $http, $stateParams) {
       });
 
       $scope.adopt = function(pokemonId){
-        console.log('http://localhost:8000/' + $stateParams.trainerId + '/adopt/' + pokemonId);
-        $http.put('https://pokemon-shelter.herokuapp.com/trainers/' + $stateParams.trainerId + '/adopt/' + pokemonId)
+        console.log(url + $stateParams.trainerId + '/adopt/' + pokemonId);
+        $http.put(url + 'trainers/' + $stateParams.trainerId + '/adopt/' + pokemonId)
           .then(function(data){
-            console.log('adopted');
-            console.log(data);
+            mixpanel.track("pokemon adopted");
           })
           .catch(function(error){
             console.log(error);
