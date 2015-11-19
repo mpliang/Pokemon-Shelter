@@ -1,3 +1,4 @@
+
 body {
   font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1.4em;
@@ -11,12 +12,25 @@ body {
   font-weight: 300;
   padding: 10px;
   min-height: 400px;
+  margin-top: 40px;
   margin-bottom: 150px;
   clear: both;
 }
 
+.navbar {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+
 .container {
   text-align: center;
+}
+
+.container.show {
+  margin-top: 40px;
 }
 
 #thumbnail {
@@ -28,14 +42,15 @@ body {
 }
 
 .showThumbnail {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: auto;
+  margin-right: auto;
   vertical-align: middle;
   background: white;
   color: black;
   height: 35rem;
-  width: 40rem;
+  width: auto;
   padding: 10px;
+  margin-bottom: 10px;
 }
 
 .thumbnail {
@@ -46,6 +61,34 @@ body {
   width: 35rem;
 }
 
+.pageHeading {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  text-align: left;
+}
+
+.pageHeading h1 {
+  margin-bottom: 0px;
+}
+
+.add {
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0px;
+}
+
+hr {
+  margin-top: 5px;
+}
+
+.showTrainer .thumbnail{
+  position: fixed;
+  height: auto;
+  width: 25rem;
+}
 #splash {
   width: 70%;
   height: 50%;
@@ -56,14 +99,16 @@ form {
 }
 
 footer {
-  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #333;
   width: 100%;
   bottom: 0;
   position: fixed;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 30px;
+  padding-bottom: 20px;
   font-size: 10px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   text-align: center;
+  left: 0;
 }
