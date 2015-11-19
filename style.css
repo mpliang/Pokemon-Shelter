@@ -38,6 +38,7 @@ body {
   margin-right: auto;
   vertical-align: middle;
   width: auto;
+  max-width: 205px;
   height: 200px;
 }
 

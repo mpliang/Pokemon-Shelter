@@ -20,9 +20,9 @@
           <p>
             <strong>Gender:</strong>
             {{n.gender}}</p>
-          <p ng-repeat="pet in n.pets">
+          <p>
             <strong>Pokemon Owned:</strong>
-            {{pet.name}}</p>
+            <span ng-repeat="pet in n.pets">{{pet.name}}</span</p>
           <p>
             <strong>Description:</strong>
             {{n.description}}</p>
