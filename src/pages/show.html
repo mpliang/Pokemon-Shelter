@@ -8,10 +8,10 @@
         <p>
           <strong>Gender:</strong>
           {{trainer.gender}}</p>
-        <p>
-          <strong>Pokemon Owned:</strong>
-          {{n.pets.name}}</p>
-        <p>
+          <p>
+            <strong>Pokemon Owned:</strong>
+            <span ng-repeat="pet in trainer.pets">{{pet.name}}</span</p>
+          <p>
           <strong>Description:</strong>
           {{trainer.description}}</p>
       </div>

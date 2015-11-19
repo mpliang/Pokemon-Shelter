@@ -5,10 +5,10 @@ app.controller('addController', function ($scope, $http, $state) {
       .then(function(data){
         console.log(data);
         mixpanel.track("Pokemon added");
+        $state.go('animals');
       })
       .catch(function(error){
         console.log(error);
       });
-      $state.go($state.current, {}, {reload: true});
   }
 });
