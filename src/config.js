@@ -6,20 +6,10 @@ app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: './src/pages/home.html',
       controller: 'mainController'
     })
-    .state('add', {
-      url: '/add',
-      templateUrl: './src/pages/add.html',
-      controller: 'addController'
-    })
     .state('animals', {
       url: '/animals',
       templateUrl: './src/pages/animals.html',
       controller: 'animalController'
-    })
-    .state('addTrainers', {
-      url: '/addTrainers',
-      templateUrl: './src/pages/addTrainers.html',
-      controller: 'addTrainerController'
     })
     .state('trainers', {
       url: '/trainers',

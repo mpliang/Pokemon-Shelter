@@ -35,6 +35,14 @@ app.controller('trainerController', function ($scope, $http, $state) {
       })
       .catch(function (error) {
         console.log(error);
+        swal({
+          title: "Error",
+          text: "Missing one or more required fields",
+          type: "error",
+          confirmButtonColor: "#dd6b55",
+          confirmButtonText: "Ok!",
+          closeOnConfirm: true
+        });
       })
   };
 
@@ -115,6 +123,14 @@ app.controller('trainerController', function ($scope, $http, $state) {
       })
       .catch(function (error) {
         console.log(error);
+        swal({
+          title: "Error",
+          text: "Oops! Something went wrong.",
+          type: "error",
+          confirmButtonColor: "#dd6b55",
+          confirmButtonText: "Ok!",
+          closeOnConfirm: true
+        });
       })
   }
 

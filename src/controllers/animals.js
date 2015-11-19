@@ -4,7 +4,6 @@ app.controller('animalController', function ($scope, $http, $state) {
   $scope.add = function (pokemon) {
     $http.post(url + 'animals', pokemon)
       .then(function (data) {
-        console.log(data);
         mixpanel.track("Pokemon added");
         swal({
           title: "Success",
@@ -19,13 +18,19 @@ app.controller('animalController', function ($scope, $http, $state) {
       })
       .catch(function (error) {
         console.log(error);
+        swal({
+          title: "Error",
+          text: "Missing one or more required fields",
+          type: "error",
+          confirmButtonColor: "#dd6b55",
+          confirmButtonText: "Ok!",
+          closeOnConfirm: true
+        });
       });
   }
 
   $http.get(url + 'animals/')
     .then(function(data){
-      console.log(data);
-      console.log(data.data);
       mixpanel.track("Pokemon list retrieved");
       $scope.pokemonlist = data.data;
     })

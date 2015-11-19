@@ -41,6 +41,14 @@ app.controller('showController', function ($scope, $http, $stateParams, $state) 
       })
       .catch(function (error) {
         console.log(error);
+        swal({
+          title: "Error",
+          text: "Oops, Something went wrong.",
+          type: "error",
+          confirmButtonColor: "#dd6b55",
+          confirmButtonText: "Ok!",
+          closeOnConfirm: true
+        });
       })
   }
 });
