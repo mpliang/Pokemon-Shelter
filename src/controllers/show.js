@@ -1,4 +1,4 @@
-app.controller('showController', function ($scope, $http, $stateParams) {
+app.controller('showController', function ($scope, $http, $stateParams, $state) {
   $scope.message = 'Trainer';
 
   $http.get(url + 'trainers/' + $stateParams.trainerId)
@@ -22,9 +22,18 @@ app.controller('showController', function ($scope, $http, $stateParams) {
     });
 
   $scope.adopt = function (pokemonId) {
-    console.log(url + $stateParams.trainerId + '/adopt/' + pokemonId);
     $http.put(url + 'trainers/' + $stateParams.trainerId + '/adopt/' + pokemonId)
       .then(function (data) {
+        console.log(data.data);
+        swal({
+          title: "Success",
+          text: data.data.name + " has successfully adopted a new pokemon!",
+          type: "success",
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Ok!",
+          closeOnConfirm: true
+        }, function () {
+        });
         mixpanel.track("pokemon adopted");
         $state.go($state.current, {}, {
           reload: true

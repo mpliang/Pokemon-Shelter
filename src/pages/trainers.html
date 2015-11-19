@@ -4,7 +4,7 @@
       <h1>Pokemon Trainers</h1>
     </div>
     <div class="col-sm-3 col-md-offset-3 add">
-      <a class="btn btn-success" ui-sref="addTrainers">Add a new trainer</a>
+      <a class="btn btn-success"  data-target="#addModal" data-toggle="modal">Add a new trainer</a>
     </div>
   </div>
   <hr>
@@ -23,12 +23,114 @@
           <p>
             <strong>Pokemon Owned:</strong>
             <span ng-repeat="pet in n.pets">{{pet.name}}</span</p>
-          <p>
-            <strong>Description:</strong>
-            {{n.description}}</p>
-          <button class="btn btn-danger" ng-click="delete(n._id)">Delete</button>
+            <p>
+              <strong>Description:</strong>
+              {{n.description}}</p>
+            <button class="btn btn-danger btn-block" data-target="#myModal" data-toggle="modal" ng-click="edit(n._id)">Edit</button>
+            <!-- <button class="btn btn-danger" ng-click="delete(n._id)">Delete</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div aria-labelledby="myModalLabel" class="modal fade" id="myModal" role="dialog" tabindex="-1">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form class="form-horizontal edit" role="form">
+              <div class="form-group">
+                <label class="control-label col-sm-4" for="name">Name:</label>
+                <div class="col-sm-6">
+                  <input autofocus class="form-control" ng-model="trainer.name" placeholder="Ash Ketchum" type="text" id="name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-4" for="gender">Gender:</label>
+                <div class="col-sm-6">
+                  <select class="form-control" id="gender" ng-model="trainer.gender">
+                    <option value="None">(Select Gender)</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-4" for="url">Image URL:</label>
+                <div class="col-sm-6">
+                  <input class="form-control" id="url" ng-model="trainer.url" placeholder="http://google.com/images" type="text">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-4" for="description">Description/Notes:</label>
+                <div class="col-sm-6">
+                  <textarea class="form-control" id="description" ng-model="trainer.description" rows="5"></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-6 col-sm-offset-4">
+                  <button class="btn btn-danger btn-block" ng-click="delete(trainer._id)">Delete</button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <div class="col-md-12">
+              <!-- <button class="btn btn-primary btn-block" type="submit">Edit</button> -->
+              <button class="btn btn-primary btn-block" ng-click="update(trainer)" type="submit">Edit</button>
+              <button class="btn btn-block" data-dismiss="modal" type="button">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div aria-labelledby="myModalLabel" class="modal fade edit" id="addModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+            <h1>Add Trainer</h1>
+            <hr>
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label class="control-label col-sm-4" for="name">Name:</label>
+                <div class="col-sm-7">
+                  <input autofocus class="form-control" ng-model="newTrainer.name" placeholder="Ash Ketchum" type="text" id="name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-4" for="gender">Gender:</label>
+                <div class="col-sm-7">
+                  <select class="form-control" id="gender" ng-model="newTrainer.gender">
+                    <option value="None" selected>(Select Gender)</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-4" for="url">Image URL:</label>
+                <div class="col-sm-7">
+                  <input class="form-control" ng-model="newTrainer.url" placeholder="http://google.com/images" type="text" id="url">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-4" for="description">Description/Notes:</label>
+                <div class="col-sm-7">
+                  <textarea class="form-control" ng-model="newTrainer.description" id="description" rows="5"></textarea>
+                </div>
+              </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <div class="col-md-12">
+            <button class="btn btn-success btn-block" ng-click="add(newTrainer)" type="submit">Add</button>
+            <button class="btn btn-block" data-dismiss="modal" type="button">Cancel</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>

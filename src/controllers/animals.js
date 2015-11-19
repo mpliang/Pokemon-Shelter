@@ -1,15 +1,23 @@
 app.controller('animalController', function ($scope, $http, $state) {
   $scope.message = 'Which one of these cute Pokemon will you adopt?';
 
-  $scope.adopt = function(id) {
-    console.log('adopted');
-    console.log(id);
-    $http.put(url + 'animals/' + id + '/toggle')
-      .then(function(data){
+  $scope.add = function (pokemon) {
+    $http.post(url + 'animals', pokemon)
+      .then(function (data) {
         console.log(data);
-        $state.go($state.current, {}, {reload: true});
+        mixpanel.track("Pokemon added");
+        swal({
+          title: "Success",
+          text: "You have successfully added " + data.data.name + " to the adoption database!",
+          type: "success",
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Ok!",
+          closeOnConfirm: true
+        }, function () {
+          $state.go('animals');
+        });
       })
-      .catch(function(error){
+      .catch(function (error) {
         console.log(error);
       });
   }

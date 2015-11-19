@@ -6,7 +6,16 @@ app.controller('addTrainerController', function ($scope, $http, $state) {
     $http.post(url + 'trainers', trainer)
       .then(function(data){
         console.log(data);
-        $state.go('trainers');
+        swal({
+          title: "Success",
+          text: "You have successfully added " + data.data.name +"!",
+          type: "success",
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: "Ok!",
+          closeOnConfirm: true
+        }, function () {
+          $state.go('trainers');
+        });
       })
       .catch(function(error){
         console.log(error);

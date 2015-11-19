@@ -70,6 +70,7 @@ body {
 }
 
 .pageHeading h1 {
+  font-weight: 200;
   margin-bottom: 0px;
 }
 
@@ -104,6 +105,10 @@ hr {
 
 form {
   margin-top: 15px;
+}
+
+.edit {
+  color: black;
 }
 
 footer {
