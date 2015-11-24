@@ -10,6 +10,7 @@
   <hr>
 
   <div class="row">
+    <h1 ng-hide="trainerList">Please wait while we get the Pokemon Trainers!</h1>
     <div class="col-sm-12 col-md-4" ng-repeat="n in trainerList track by $index">
       <div class="thumbnail">
         <a ui-sref="trainerShow({trainerId: n._id})">

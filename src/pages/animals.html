@@ -12,6 +12,7 @@
   <!-- <p>{{ message }}</p> -->
 
   <div class="row">
+    <h1 ng-hide="pokemonlist">Please wait while we get your Pokemon!</h1>
     <div class="col-sm-12 col-md-6 col-lg-4" ng-repeat="n in pokemonlist track by $index">
       <div class="thumbnail">
         <img id="thumbnail" ng-src="{{n.url}}">
